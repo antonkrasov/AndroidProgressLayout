@@ -1,0 +1,56 @@
+package com.github.androidprogresslayout.demo;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.github.androidprogresslayout.ProgressLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class HandlerFragment extends Fragment {
+
+    private Handler mHandler = new Handler();
+
+    public static HandlerFragment newInstance() {
+        return new HandlerFragment();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_handler, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        final ListView listView = (ListView) view.findViewById(R.id.list);
+        final ProgressLayout progressLayout = (ProgressLayout) view.findViewById(R.id.progress);
+
+        progressLayout.setProgress(true);
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                List<String> items = new ArrayList<String>();
+                for (int i = 0; i < 100; i++) {
+                    items.add("Item " + i);
+                }
+                listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, items));
+                progressLayout.setProgress(false);
+            }
+        }, 3000);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mHandler.removeCallbacksAndMessages(null);
+    }
+}
