@@ -9,6 +9,7 @@ to use it, just think about it as a RelativeLayout with auto added ProgressBar.
 
   - [Features](#features)
   - [Getting Started](#getting-started)
+  - [Including in your project](#including-in-your-project)
   - [Developed By](#developed-by)
   - [License](#license)
 
@@ -64,6 +65,24 @@ to use it, just think about it as a RelativeLayout with auto added ProgressBar.
                     super.onReceivedError(view, errorCode, description, failingUrl);
                 }
             });
+```
+
+### Including in your project
+
+```groovy
+    allprojects {
+        repositories {
+            jcenter()
+
+            maven { url 'https://oss.sonatype.org/content/groups/public' }
+
+        }
+    }
+
+
+    dependencies {
+        compile 'com.github.androidprogresslayout:library:1.0-SNAPSHOT@aar'
+    }
 ```
 
 ##Developed By
