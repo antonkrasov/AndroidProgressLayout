@@ -1,10 +1,5 @@
 apply plugin: 'com.android.library'
-
-apply plugin: 'maven'
-apply plugin: 'signing'
-
-version = "1.1"
-group = "com.github.androidprogresslayout"
+apply plugin: 'bintray-release'
 
 android {
     compileSdkVersion 19
@@ -22,69 +17,11 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-configurations {
-    archives {
-        extendsFrom configurations.default
-    }
-}
-
-signing {
-    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
-    sign configurations.archives
-}
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from 'src/main/java'
-}
-
-task javadocJar(type: Jar) {
-    classifier = 'javadoc'
-    from 'build/docs/javadoc'
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
-
-uploadArchives {
-    configuration = configurations.archives
-    repositories.mavenDeployer {
-        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-        repository(url: sonatypeRepo) {
-            authentication(userName: sonatypeUsername,
-                    password: sonatypePassword)
-        }
-
-        pom.project {
-            name 'AndroidProgressLayout'
-            packaging 'aar'
-            description 'Android View to simplify working with ProgressBar'
-            url 'https://github.com/antonkrasov/AndroidProgressLayout'
-
-            scm {
-                url 'scm:git@github.com:antonkrasov/AndroidProgressLayout'
-                connection 'scm:git@github.com:antonkrasov/AndroidProgressLayout.git'
-                developerConnection 'scm:git@github.com:antonkrasov/AndroidProgressLayout.git'
-            }
-
-            licenses {
-                license {
-                    name 'The MIT License (MIT)'
-                    url 'http://opensource.org/licenses/MIT'
-                    distribution 'repo'
-                }
-            }
-
-            developers {
-                developer {
-                    id 'anton.krasov'
-                    name 'Anton Krasov'
-                    email 'anton.krasov@gmail.com'
-                }
-            }
-        }
-    }
+publish {
+    groupId = 'com.github.androidprogresslayout'
+    artifactId = 'library'
+    version = '1.1'
+    description = 'Android View to simplify working with ProgressBar'
+    website = 'https://github.com/antonkrasov/AndroidProgressLayout'
+    dryRun = false
 }
