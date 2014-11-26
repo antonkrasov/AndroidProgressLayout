@@ -18,16 +18,10 @@ import java.util.List;
 
 public class ProgressLayout extends RelativeLayout {
 
-    private static final String KEY_SAVE_ORIGINAL_STATE = "ProgressLayout.KEY_SAVE_ORIGINAL_STATE";
-    private static final String KEY_SAVE_IS_PROGRESS = "ProgressLayout.KEY_SAVE_IS_PROGRESS";
-
     private static final String TAG_PROGRESS = "ProgressLayout.TAG_PROGRESS";
 
     private View mProgressView;
     private List<View> mContentViews = new ArrayList<View>();
-
-    private int mBackgroundColor;
-    private boolean mStartFromProgress;
 
     public ProgressLayout(Context context) {
         super(context);
@@ -45,15 +39,14 @@ public class ProgressLayout extends RelativeLayout {
 
     private void init(AttributeSet attrs) {
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ProgressLayout);
-        mBackgroundColor = a.getColor(R.styleable.ProgressLayout_progressBackground, Color.TRANSPARENT);
-        mStartFromProgress = a.getBoolean(R.styleable.ProgressLayout_progress, false);
+        int backgroundColor = a.getColor(R.styleable.ProgressLayout_progressBackground, Color.TRANSPARENT);
+        boolean startFromProgress = a.getBoolean(R.styleable.ProgressLayout_progress, false);
         a.recycle();
-
 
         LayoutParams layoutParams;
 
         // if progressBackground color == Color.TRANSPARENT just add progress bar
-        if (mBackgroundColor == Color.TRANSPARENT) {
+        if (backgroundColor == Color.TRANSPARENT) {
             mProgressView = new ProgressBar(getContext());
 
             layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -61,7 +54,7 @@ public class ProgressLayout extends RelativeLayout {
         } else { // else wrap progress bar in LinearLayout and set background color to LinearLayout
             LinearLayout linearLayout = new LinearLayout(getContext());
             linearLayout.setGravity(Gravity.CENTER);
-            linearLayout.setBackgroundColor(mBackgroundColor);
+            linearLayout.setBackgroundColor(backgroundColor);
 
             layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
@@ -72,7 +65,7 @@ public class ProgressLayout extends RelativeLayout {
         }
 
         mProgressView.setTag(TAG_PROGRESS);
-        if (!mStartFromProgress) {
+        if (!startFromProgress) {
             mProgressView.setVisibility(View.GONE);
         }
         addView(mProgressView, layoutParams);
@@ -98,23 +91,4 @@ public class ProgressLayout extends RelativeLayout {
             v.setVisibility(visible ? View.GONE : View.VISIBLE);
         }
     }
-
-    @Override
-    public Parcelable onSaveInstanceState() {
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(KEY_SAVE_ORIGINAL_STATE, super.onSaveInstanceState());
-        bundle.putBoolean(KEY_SAVE_IS_PROGRESS, isProgress());
-        return bundle;
-    }
-
-    @Override
-    public void onRestoreInstanceState(Parcelable state) {
-        if (state instanceof Bundle) {
-            Bundle bundle = (Bundle) state;
-            setProgress(bundle.getBoolean(KEY_SAVE_IS_PROGRESS));
-            Parcelable originalState = bundle.getParcelable(KEY_SAVE_ORIGINAL_STATE);
-            super.onRestoreInstanceState(originalState);
-        }
-    }
-
 }
