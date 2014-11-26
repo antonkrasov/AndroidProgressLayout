@@ -13,6 +13,7 @@ import android.widget.ListView;
 import com.github.androidprogresslayout.ProgressLayout;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class HandlerFragment extends Fragment implements AdapterView.OnItemClickListener {
@@ -59,7 +60,7 @@ public class HandlerFragment extends Fragment implements AdapterView.OnItemClick
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String text = (String) parent.getItemAtPosition(position);
-        
+
         getFragmentManager()
                 .beginTransaction()
                 .replace(R.id.root_container, TextFragment.newInstance(text))

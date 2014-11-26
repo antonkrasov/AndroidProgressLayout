@@ -14,6 +14,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class ProgressLayout extends RelativeLayout {
@@ -85,10 +87,16 @@ public class ProgressLayout extends RelativeLayout {
     }
 
     public void setProgress(boolean visible) {
+        setProgress(visible, Collections.<Integer>emptyList());
+    }
+
+    public void setProgress(boolean visible, List<Integer> skipIds) {
         mProgressView.setVisibility(visible ? View.VISIBLE : View.GONE);
 
         for (View v : mContentViews) {
-            v.setVisibility(visible ? View.GONE : View.VISIBLE);
+            if (!skipIds.contains(v.getId())) {
+                v.setVisibility(visible ? View.GONE : View.VISIBLE);
+            }
         }
     }
 }
