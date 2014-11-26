@@ -73,15 +73,11 @@ to use it, just think about it as a RelativeLayout with auto added ProgressBar.
     allprojects {
         repositories {
             jcenter()
-
-            maven { url 'https://oss.sonatype.org/content/groups/public' }
-
         }
     }
 
-
     dependencies {
-        compile 'com.github.androidprogresslayout:library:1.0-SNAPSHOT@aar'
+        compile 'com.github.androidprogresslayout:library:1.1@aar'
     }
 ```
 
