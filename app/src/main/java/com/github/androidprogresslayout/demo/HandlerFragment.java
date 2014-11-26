@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -14,7 +15,7 @@ import com.github.androidprogresslayout.ProgressLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HandlerFragment extends Fragment {
+public class HandlerFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private Handler mHandler = new Handler();
 
@@ -32,6 +33,7 @@ public class HandlerFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         final ListView listView = (ListView) view.findViewById(R.id.list);
+        listView.setOnItemClickListener(this);
         final ProgressLayout progressLayout = (ProgressLayout) view.findViewById(R.id.progress);
 
         progressLayout.setProgress(true);
@@ -52,5 +54,16 @@ public class HandlerFragment extends Fragment {
     public void onPause() {
         super.onPause();
         mHandler.removeCallbacksAndMessages(null);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String text = (String) parent.getItemAtPosition(position);
+        
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.root_container, TextFragment.newInstance(text))
+                .addToBackStack(null)
+                .commit();
     }
 }

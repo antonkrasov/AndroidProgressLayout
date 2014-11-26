@@ -1,6 +1,7 @@
 package com.github.androidprogresslayout.demo;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -26,6 +27,16 @@ public class ListFragment extends android.support.v4.app.ListFragment {
         items.add(HANDLER);
         items.add(WEB_VIEW);
         setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, items));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        ActionBar actionBar = ((MainActivity) getActivity()).getSupportActionBar();
+
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setHomeButtonEnabled(false);
     }
 
     @Override

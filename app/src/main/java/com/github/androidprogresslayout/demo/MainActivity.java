@@ -32,8 +32,6 @@ public class MainActivity extends ActionBarActivity {
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
             getSupportFragmentManager().popBackStack();
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-            getSupportActionBar().setHomeButtonEnabled(false);
             return;
         }
 
