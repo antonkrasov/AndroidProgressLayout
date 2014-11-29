@@ -1,3 +1,5 @@
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AndroidProgressLayout-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1175)
+
 AndroidProgressLayout
 =====================
 
