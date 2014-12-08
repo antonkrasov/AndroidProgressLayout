@@ -3,22 +3,19 @@ package com.github.androidprogresslayout;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public class ProgressLayout extends RelativeLayout {
+public class ProgressLayout extends FrameLayout {
 
     private static final String TAG_PROGRESS = "ProgressLayout.TAG_PROGRESS";
 
@@ -52,7 +49,7 @@ public class ProgressLayout extends RelativeLayout {
             mProgressView = new ProgressBar(getContext());
 
             layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            layoutParams.addRule(CENTER_IN_PARENT);
+            layoutParams.gravity = Gravity.CENTER;
         } else { // else wrap progress bar in LinearLayout and set background color to LinearLayout
             LinearLayout linearLayout = new LinearLayout(getContext());
             linearLayout.setGravity(Gravity.CENTER);
