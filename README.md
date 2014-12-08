@@ -86,7 +86,7 @@ to use it, just think about it as a RelativeLayout with auto added ProgressBar.
     }
 
     dependencies {
-        compile 'com.github.androidprogresslayout:library:1.2@aar'
+        compile 'com.github.androidprogresslayout:library:2.0.1@aar'
     }
 ```
 
