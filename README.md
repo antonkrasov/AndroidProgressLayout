@@ -57,12 +57,12 @@ to use it, just think about it as a RelativeLayout with auto added ProgressBar.
     webView.setWebViewClient(new WebViewClient() {
                 @Override
                 public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                    progressLayout.setProgress(true);
+                    progressLayout.showProgress();
                 }
 
                 @Override
                 public void onPageFinished(WebView view, String url) {
-                    progressLayout.setProgress(false);
+                    progressLayout.showContent();
                 }
 
                 @Override
@@ -70,6 +70,8 @@ to use it, just think about it as a RelativeLayout with auto added ProgressBar.
                     Log.d(TAG, "onReceivedError: " + errorCode + " : " + description + " : " + failingUrl);
 
                     super.onReceivedError(view, errorCode, description, failingUrl);
+                    
+                    progressLayout.showErrorText(description);
                 }
             });
 ```
@@ -84,7 +86,7 @@ to use it, just think about it as a RelativeLayout with auto added ProgressBar.
     }
 
     dependencies {
-        compile 'com.github.androidprogresslayout:library:1.1@aar'
+        compile 'com.github.androidprogresslayout:library:1.2@aar'
     }
 ```
 
