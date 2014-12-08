@@ -158,6 +158,8 @@ public class ProgressLayout extends RelativeLayout {
             case ERROR:
                 if (TextUtils.isEmpty(errorText)) {
                     mErrorTextView.setText(R.string.unknown_error);
+                } else {
+                    mErrorTextView.setText(errorText);
                 }
                 mErrorTextView.setVisibility(View.VISIBLE);
                 mProgressView.setVisibility(View.GONE);

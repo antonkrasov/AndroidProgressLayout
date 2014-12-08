@@ -20,7 +20,7 @@ dependencies {
 publish {
     groupId = 'com.github.androidprogresslayout'
     artifactId = 'library'
-    version = '1.2'
+    version = '2.0.1'
     uploadName = 'AndroidProgressLayout'
     description = 'Android View to simplify working with ProgressBar'
     website = 'https://github.com/antonkrasov/AndroidProgressLayout'
