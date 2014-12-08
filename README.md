@@ -4,6 +4,8 @@ AndroidProgressLayout
 =====================
 
 <p>
+<img src="https://raw.github.com/antonkrasov/AndroidProgressLayout/master/art/demo.gif" align="left" hspace="40px" height="500" />
+
 If you tired from wrapping your Views with RelativeLayout to add ProgressBar then this
 small view will help you. It extends from RelativeLayout, so you shouldn't add additional layouts
 to use it, just think about it as a RelativeLayout with auto added ProgressBar.
@@ -14,6 +16,8 @@ to use it, just think about it as a RelativeLayout with auto added ProgressBar.
   - [Including in your project](#including-in-your-project)
   - [Developed By](#developed-by)
   - [License](#license)
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 ### Features
 
