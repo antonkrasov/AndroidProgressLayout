@@ -6,39 +6,38 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.github.androidprogresslayout.ProgressLayout;
 import com.github.androidprogresslayout.demo.R;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
-public class DisplayErrorFragment extends Fragment {
+public class SkipIdsFragment extends Fragment {
 
     private Handler mHandler = new Handler();
 
-    public static DisplayErrorFragment newInstance() {
-        return new DisplayErrorFragment();
+    public static SkipIdsFragment newInstance() {
+        return new SkipIdsFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_handler, container, false);
+        return inflater.inflate(R.layout.fragment_skip_ids, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        final ProgressLayout progressLayout = (ProgressLayout) view.findViewById(R.id.progress);
+        final ProgressLayout progressLayout = (ProgressLayout) view.findViewById(R.id.progress_layout);
 
-        progressLayout.showProgress();
+        // we don't want R.id.red_view to be hidden, when we show ProgressBar
+        progressLayout.showProgress(Arrays.asList(R.id.red_view));
+
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                progressLayout.showErrorText();
+                progressLayout.showContent();
             }
         }, 2000);
     }

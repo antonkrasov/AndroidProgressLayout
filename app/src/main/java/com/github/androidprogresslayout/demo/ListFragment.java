@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.github.androidprogresslayout.demo.example.DisplayErrorFragment;
 import com.github.androidprogresslayout.demo.example.HandlerFragment;
+import com.github.androidprogresslayout.demo.example.SkipIdsFragment;
 import com.github.androidprogresslayout.demo.example.WebViewFragment;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class ListFragment extends android.support.v4.app.ListFragment {
     public static final String HANDLER = "Handler";
     public static final String WEB_VIEW = "WebView";
     public static final String DISPLAY_ERROR = "Display Error";
+    public static final String SKIP_IDS = "Skip Some Ids";
 
     public static ListFragment newInstance() {
         return new ListFragment();
@@ -32,6 +34,7 @@ public class ListFragment extends android.support.v4.app.ListFragment {
         items.add(HANDLER);
         items.add(WEB_VIEW);
         items.add(DISPLAY_ERROR);
+        items.add(SKIP_IDS);
         setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, items));
     }
 
@@ -62,6 +65,11 @@ public class ListFragment extends android.support.v4.app.ListFragment {
         } else if (item.equals(DISPLAY_ERROR)) {
             getFragmentManager().beginTransaction()
                     .replace(R.id.root_container, DisplayErrorFragment.newInstance())
+                    .addToBackStack(null)
+                    .commit();
+        } else if (item.equals(SKIP_IDS)) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.root_container, SkipIdsFragment.newInstance())
                     .addToBackStack(null)
                     .commit();
         }

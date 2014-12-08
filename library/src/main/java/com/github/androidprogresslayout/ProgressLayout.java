@@ -11,13 +11,14 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ProgressLayout extends FrameLayout {
+public class ProgressLayout extends RelativeLayout {
 
     private static final String TAG_PROGRESS = "ProgressLayout.TAG_PROGRESS";
     private static final String TAG_ERROR = "ProgressLayout.TAG_ERROR";
@@ -58,7 +59,7 @@ public class ProgressLayout extends FrameLayout {
             mProgressView = new ProgressBar(getContext());
 
             layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            layoutParams.gravity = Gravity.CENTER;
+            layoutParams.addRule(CENTER_IN_PARENT);
         } else { // else wrap progress bar in LinearLayout and set background color to LinearLayout
             LinearLayout linearLayout = new LinearLayout(getContext());
             linearLayout.setGravity(Gravity.CENTER);
@@ -80,7 +81,7 @@ public class ProgressLayout extends FrameLayout {
         mErrorTextView.setTag(TAG_ERROR);
 
         layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.gravity = Gravity.CENTER;
+        layoutParams.addRule(CENTER_IN_PARENT);
 
         addView(mErrorTextView, layoutParams);
 
@@ -100,7 +101,7 @@ public class ProgressLayout extends FrameLayout {
         switchState(State.PROGRESS, null, Collections.<Integer>emptyList());
     }
 
-    public void setProgress(List<Integer> skipIds) {
+    public void showProgress(List<Integer> skipIds) {
         switchState(State.PROGRESS, null, skipIds);
     }
 

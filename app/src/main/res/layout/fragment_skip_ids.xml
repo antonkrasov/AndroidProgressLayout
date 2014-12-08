@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.androidprogresslayout.ProgressLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/progress_layout"
+    >
+
+    <View
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:id="@+id/red_view"
+        android:background="#f00"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Some text"
+        />
+
+</com.github.androidprogresslayout.ProgressLayout>
