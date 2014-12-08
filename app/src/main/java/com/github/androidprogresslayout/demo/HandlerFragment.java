@@ -37,7 +37,7 @@ public class HandlerFragment extends Fragment implements AdapterView.OnItemClick
         listView.setOnItemClickListener(this);
         final ProgressLayout progressLayout = (ProgressLayout) view.findViewById(R.id.progress);
 
-        progressLayout.setProgress(true);
+        progressLayout.showProgress();
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -46,9 +46,9 @@ public class HandlerFragment extends Fragment implements AdapterView.OnItemClick
                     items.add("Item " + i);
                 }
                 listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, items));
-                progressLayout.setProgress(false);
+                progressLayout.showContent();
             }
-        }, 3000);
+        }, 2000);
     }
 
     @Override

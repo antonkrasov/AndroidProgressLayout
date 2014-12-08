@@ -2,6 +2,5 @@
 <resources>
     <declare-styleable name="ProgressLayout">
         <attr name="progressBackground" format="color"/>
-        <attr name="progress" format="boolean"/>
     </declare-styleable>
 </resources>

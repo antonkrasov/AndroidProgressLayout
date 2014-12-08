@@ -34,12 +34,12 @@ public class WebViewFragment extends Fragment {
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                progressLayout.setProgress(true);
+                progressLayout.showProgress();
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
-                progressLayout.setProgress(false);
+                progressLayout.showContent();
             }
 
             @Override
