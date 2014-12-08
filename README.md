@@ -4,7 +4,7 @@ AndroidProgressLayout
 =====================
 
 <p>
-<img src="https://raw.github.com/antonkrasov/AndroidProgressLayout/master/art/demo.gif" align="left" hspace="40px" height="500" />
+<img src="https://raw.github.com/antonkrasov/AndroidProgressLayout/master/art/demo.gif" align="left" hspace="40px" />
 
 If you tired from wrapping your Views with RelativeLayout to add ProgressBar then this
 small view will help you. It extends from RelativeLayout, so you shouldn't add additional layouts
