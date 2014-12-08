@@ -1,4 +1,4 @@
-package com.github.androidprogresslayout.demo;
+package com.github.androidprogresslayout.demo.example;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.github.androidprogresslayout.ProgressLayout;
+import com.github.androidprogresslayout.demo.R;
 
 public class WebViewFragment extends Fragment {
     private static final String TAG = WebViewFragment.class.getSimpleName();

@@ -1,4 +1,4 @@
-package com.github.androidprogresslayout.demo;
+package com.github.androidprogresslayout.demo.example;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,9 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.github.androidprogresslayout.ProgressLayout;
+import com.github.androidprogresslayout.demo.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class HandlerFragment extends Fragment implements AdapterView.OnItemClickListener {
