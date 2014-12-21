@@ -50,8 +50,9 @@ to use it, just think about it as a RelativeLayout with auto added ProgressBar.
 
 ```
 
-  Now you can use progressLayout.setProgress(true / false) to show or hide progress bar.
-
+  Now you can use progressLayout.progressLayout.showProgress() to show progress bar, progressLayout.showContent() to show content, or progressLayout.showErrorText( <description> ) to show any text.
+  
+progressLayout:progress="true|false" indicates, will progress bar visible, after view creation, or not.
 
 ```java
     webView.setWebViewClient(new WebViewClient() {
@@ -86,7 +87,7 @@ to use it, just think about it as a RelativeLayout with auto added ProgressBar.
     }
 
     dependencies {
-        compile 'com.github.androidprogresslayout:library:2.0.1@aar'
+        compile 'com.github.androidprogresslayout:library:2.0.2@aar'
     }
 ```
 
