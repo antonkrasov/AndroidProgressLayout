@@ -50,6 +50,7 @@ public class ProgressLayout extends RelativeLayout {
     private void init(AttributeSet attrs) {
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ProgressLayout);
         int backgroundColor = a.getColor(R.styleable.ProgressLayout_progressBackground, Color.TRANSPARENT);
+        boolean progress = a.getBoolean(R.styleable.ProgressLayout_progress, false);
         a.recycle();
 
         LayoutParams layoutParams;
@@ -85,7 +86,7 @@ public class ProgressLayout extends RelativeLayout {
 
         addView(mErrorTextView, layoutParams);
 
-        mErrorTextView.setVisibility(View.GONE);
+        mProgressView.setVisibility(progress ? VISIBLE : GONE);
     }
 
     @Override

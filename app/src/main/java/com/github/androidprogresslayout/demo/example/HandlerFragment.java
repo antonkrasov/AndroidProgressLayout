@@ -37,7 +37,6 @@ public class HandlerFragment extends Fragment implements AdapterView.OnItemClick
         listView.setOnItemClickListener(this);
         final ProgressLayout progressLayout = (ProgressLayout) view.findViewById(R.id.progress);
 
-        progressLayout.showProgress();
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
