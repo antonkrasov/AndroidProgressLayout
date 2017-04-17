@@ -91,7 +91,7 @@ progressLayout:progress="true|false" indicates, will progress bar visible, after
     }
 ```
 
-##Developed By
+## Developed By
 
   Anton Krasov - <anton.krasov@gmail.com>
 
