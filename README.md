@@ -1,6 +1,6 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AndroidProgressLayout-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1175)
 
-AndroidProgressLayout
+AndroidProgressLayout:
 =====================
 
 <p>
@@ -25,7 +25,7 @@ to use it, just think about it as a RelativeLayout with auto added ProgressBar.
   - show/hide progress bar
   - setup background to hide your views when progress bar is showing
 
-### Getting started
+### Getting started:
 
     Add com.github.androidprogresslayout.ProgressLayout to your layout
 
